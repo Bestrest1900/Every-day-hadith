@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كل يوم حديث</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <a href="images/wujo.jpg" target="_blank">
+                    <img src="images/logo.jpg" alt="صورة الوجو" class="wujo-image">
+                </a>
+                
+                <div class="logo">
+                    <div class="logo-text" id="appTitle">كل يوم حديث</div>
+                </div>
+                
+                <div class="auth-buttons" id="authButtons">
+                    <button id="loginBtn"><i class="fas fa-sign-in-alt"></i> <span class="login-text">تسجيل الدخول</span></button>
+                    <button id="registerBtn"><i class="fas fa-user-plus"></i> <span class="register-text">إنشاء حساب</span></button>
+                </div>
+                
+                <div class="user-info" id="userInfo">
+                    <div class="user-avatar" id="userAvatar"></div>
+                    <div class="user-name" id="userName"></div>
+                    <button class="logout-btn" id="logoutBtn"><span class="logout-text">تسجيل الخروج</span></button>
+                </div>
+            </div>
+        </header>
+        
+        <div class="language-section">
+            <h3 id="languageTitle">اختر اللغة</h3>
+            <div class="language-tabs">
+                <button class="language-tab active" data-lang="ar">العربية</button>
+                <button class="language-tab" data-lang="en">English</button>
+                <button class="language-tab" data-lang="fr">Français</button>
+                <button class="language-tab" data-lang="tr">Türkçe</button>
+                <button class="language-tab" data-lang="ur">اردو</button>
+                <button class="language-tab" data-lang="zh">中文</button>
+                <button class="language-tab" data-lang="es">Español</button>
+                <button class="language-tab" data-lang="ru">Русский</button>
+            </div>
+        </div>
+        
+        <div class="notification-section">
+            <h3 id="notificationTitle">الإشعارات اليومية</h3>
+            <p id="notificationDescription">قم بتفعيل الإشعارات ليصلك حديث اليوم كل يوم في الوقت المحدد</p>
+            <div class="notification-controls">
+                <div class="notification-toggle">
+                    <label class="switch">
+                        <input type="checkbox" id="notificationToggle">
+                        <span class="slider"></span>
+                    </label>
+                    <span id="notificationStatus">تفعيل الإشعارات</span>
+                </div>
+                <div class="notification-time" id="notificationTimeContainer">
+                    <label for="notificationTimeSelect" id="notificationTimeLabel">وقت الإشعار:</label>
+                    <select id="notificationTimeSelect">
+                        <option value="08:00">8:00 صباحاً</option>
+                        <option value="12:00">12:00 ظهراً</option>
+                        <option value="15:00">3:00 عصراً</option>
+                        <option value="18:00">6:00 مساءً</option>
+                        <option value="21:00">9:00 مساءً</option>
+                    </select>
+                </div>
+                <button class="action-btn" id="testNotificationBtn">
+                    <i class="fas fa-bell"></i> <span id="testNotificationText">تجربة الإشعار</span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="date-info">
+            <div class="combined-date">
+                <div class="date-box">
+                    <div class="date-title" id="gregorianTitle">الميلادي</div>
+                    <div class="date-value gregorian-numbers" id="gregorianDate">24 سبتمبر 2025</div>
+                </div>
+                <div class="date-box">
+                    <div class="date-title" id="hijriTitle">الهجري</div>
+                    <div class="date-value" id="hijriDate">10 ربيع الأول 1445</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="prayer-times-section">
+            <h3 id="prayerTimesTitle">مواقيت الصلاة اليوم</h3>
+            <div class="prayer-times">
+                <div class="prayer-time" id="fajr">
+                    <div class="prayer-name" id="fajrName">الفجر</div>
+                    <div class="prayer-hour">5:30</div>
+                </div>
+                <div class="prayer-time" id="dhuhr">
+                    <div class="prayer-name" id="dhuhrName">الظهر</div>
+                    <div class="prayer-hour">12:15</div>
+                </div>
+                <div class="prayer-time" id="asr">
+                    <div class="prayer-name" id="asrName">العصر</div>
+                    <div class="prayer-hour">3:45</div>
+                </div>
+                <div class="prayer-time" id="maghrib">
+                    <div class="prayer-name" id="maghribName">المغرب</div>
+                    <div class="prayer-hour">6:20</div>
+                </div>
+                <div class="prayer-time" id="isha">
+                    <div class="prayer-name" id="ishaName">العشاء</div>
+                    <div class="prayer-hour">7:45</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hadith-section">
+            <div class="hadith-header">
+                <i class="fas fa-quote-right" style="color: var(--primary-green); font-size: 32px;"></i>
+                <h2 id="hadithTitle">حديث اليوم</h2>
+                <i class="fas fa-quote-left" style="color: var(--primary-green); font-size: 32px;"></i>
+            </div>
+            
+            <div class="hadith-meta">
+                <div class="hadith-source" id="hadithSource">صحيح البخاري</div>
+                <div class="hadith-number" id="hadithNumber">الحديث رقم: 1</div>
+            </div>
+            
+            <div class="hadith-text" id="hadithText"></div>
+            
+            <div class="explanation active" id="explanationAr"></div>
+            <div class="explanation" id="explanationEn"></div>
+            <div class="explanation" id="explanationFr"></div>
+            <div class="explanation" id="explanationTr"></div>
+            <div class="explanation" id="explanationUr"></div>
+            <div class="explanation" id="explanationZh"></div>
+            <div class="explanation" id="explanationEs"></div>
+            <div class="explanation" id="explanationRu"></div>
+            
+            <div class="actions">
+                <button class="action-btn" id="prevHadith">
+                    <i class="fas fa-arrow-right"></i> <span class="prev-text">الحديث السابق</span>
+                </button>
+                <button class="action-btn share" id="shareHadith">
+                    <i class="fas fa-share"></i> <span class="share-text">مشاركة الحديث</span>
+                </button>
+                <button class="action-btn" id="nextHadith">
+                    <span class="next-text">الحديث التالي</span> <i class="fas fa-arrow-left"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="social-section">
+            <h3 id="socialTitle">تابعنا على وسائل التواصل الاجتماعي</h3>
+            <div class="social-icons">
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+        
+        <footer>
+            <p id="footerText">تطبيق "كل يوم حديث" - 2023 | جميع الحقوق محفوظة</p>
+        </footer>
+    </div>
+
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeLoginModal">&times;</span>
+            <h2 id="loginTitle">تسجيل الدخول</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail" id="loginEmailLabel">البريد الإلكتروني</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword" id="loginPasswordLabel">كلمة المرور</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="form-submit" id="loginSubmit">تسجيل الدخول</button>
+            </form>
+            <div class="form-footer">
+                <p id="noAccountText">ليس لديك حساب؟ <a id="showRegisterForm">إنشاء حساب جديد</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeRegisterModal">&times;</span>
+            <h2 id="registerTitle">إنشاء حساب جديد</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="registerName" id="registerNameLabel">الاسم الكامل</label>
+                    <input type="text" id="registerName" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail" id="registerEmailLabel">البريد الإلكتروني</label>
+                    <input type="email" id="registerEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword" id="registerPasswordLabel">كلمة المرور</label>
+                    <input type="password" id="registerPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerConfirmPassword" id="registerConfirmPasswordLabel">تأكيد كلمة المرور</label>
+                    <input type="password" id="registerConfirmPassword" required>
+                </div>
+                <button type="submit" class="form-submit" id="registerSubmit">إنشاء حساب</button>
+            </form>
+            <div class="form-footer">
+                <p id="haveAccountText">لديك حساب بالفعل؟ <a id="showLoginForm">تسجيل الدخول</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
